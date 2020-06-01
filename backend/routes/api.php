@@ -34,9 +34,10 @@ Route::put('/edit_user_admin/{user}', 'UserController@editAdmin');
 Route::delete('/delete_user/{user}', 'UserController@delete');
 //Overviews
 Route::get('/overviews/{user_id}', 'OverviewController@showOverviews');
-Route::get('/overview/{user_id}/{overview}', 'OverviewController@showOverview');
+Route::get('/overview/{user_id}/{overview', 'OverviewController@showOverview');
 Route::post('/overview/{user_id}', 'OverviewController@createOverview');
 
 Route::get('/locations/{user_id}', 'LocationController@showLocations');
-Route::get('/location/{user_id}/{location}', 'LocationController@showLocation');
-Route::post('/location/{user_id}', 'OverviewController@createLocation');
+Route::get('/daily_overview/{user_id}/{overview_id}', 'LocationController@getDailyLocations');
+Route::get('/location/{user_id}/{location_id}', 'LocationController@showLocation');
+Route::post('/new_location/{user_id}', 'LocationController@createLocation');

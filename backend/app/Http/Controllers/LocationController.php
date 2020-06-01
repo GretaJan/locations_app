@@ -21,10 +21,16 @@ class LocationController extends Controller
         return $locations;
     }
 
-    public function showLocation($user_id, $location)
+    public function showLocation($user_id, $location_id)
     {
-        $location = $this->location->getLocation($user_id, $location);
+        $location = $this->location->getLocation($user_id, $location_id);
         return $location;
+    }
+
+    public function getDailyLocations($user_id, $overview_id)
+    {
+        $locations = $this->location->getDailyLocations($user_id, $overview_id);
+        return $locations;
     }
 
     public function createLocation(Request $request, $user_id)

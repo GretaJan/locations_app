@@ -19,10 +19,11 @@ class Location extends JsonResource
             'user_id' => $this->user_id,
             'longitude' => $this->longitude,
             'latitude' => $this->latitude,
-            'started_at' => $this->started_at,
-            'ended_at'=> $this->ended_at,
-            'worked_today' => $this->worked_today,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at->format('Y-m-d H:i'),
+            'updated_at' => $this->updated_at->format('Y-m-d H:i'),
+            'deleted_at' => $this->deleted_at,
+            'ended_at'=> $this->ended_at->format('Y-m-d H:i'),
+            // 'worked_today' => $this->worked_today,
         ];
     }
 }

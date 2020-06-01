@@ -58,10 +58,10 @@ class UserRepository
 
     public function register($request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'password' => 'required|min:5|confirmed',
-        ]);
+        // $request->validate([
+        //     'name' => 'required|string',
+        //     'password' => 'required|min:5|confirmed',
+        // ]);
 
         $user = new User();
         $user->username = $request->username;

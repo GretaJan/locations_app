@@ -18,9 +18,9 @@ class CreateLocationsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->decimal('longitude');
             $table->decimal('latitude');
-            $table->timestamp('started_at');
+            // $table->timestamp('started_at');
             $table->timestamp('ended_at')->default(null)->nullable();
-            $table->timestamp('worked_today')->default(null)->nullable();
+            $table->string('worked_today')->default(null)->nullable();
             $table->timestamps();
         });
     }

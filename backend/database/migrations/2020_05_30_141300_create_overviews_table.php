@@ -16,11 +16,11 @@ class CreateOverviewsTable extends Migration
         Schema::create('overviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
-            $table->timestamp('login_at');
+            // $table->timestamp('login_at');
             $table->timestamp('logout_at')->default(null)->nullable();
             $table->timestamp('lunch_start')->default(null)->nullable();
             $table->timestamp('lunch_end')->default(null)->nullable();
-            $table->timestamp('worked_until')->nullable();
+            $table->string('worked_until')->nullable();
             $table->timestamps();
         });
     }

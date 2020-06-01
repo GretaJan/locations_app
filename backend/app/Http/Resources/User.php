@@ -25,7 +25,8 @@ class User extends JsonResource
             'phone' => $this->phone,
             'address' => $this->address,
             'password' => $this->password,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at->format('Y:m:d H:i'),
+            'updated_at' => $this->updated_at->format('Y-m-d H:i')
         ];
     }
 }

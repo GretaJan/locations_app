@@ -11,7 +11,7 @@ $factory->define(Overview::class, function (Faker $faker) {
     return [
         'id' => $faker->numberBetween($min = 1, $max = 30),
         'user_id' => $faker->randomElement($users),  
-        'login_at' => $faker->datetime(),
+        // 'login_at' => $faker->datetime(),
         'logout_at' => $faker->datetime(),
         'lunch_start' => $faker->datetime(),
         'lunch_end' => $faker->datetime(),

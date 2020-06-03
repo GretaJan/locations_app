@@ -52,7 +52,7 @@ class LocationRepository
         $location->user_id = $user->id;
         $location->longitude = $request->longitude;
         $location->latitude = $request->latitude;
-        $location->started_at = $request->started_at;
+        // $location->started_at = $request->started_at;
         $location->ended_at = $request->ended_at;
         $location->worked_today = $request->worked_today;
         $location->save();

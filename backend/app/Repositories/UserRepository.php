@@ -24,10 +24,14 @@ class UserRepository
         return UserResource::collection($users);
     }
 
+    public function getUserPersonal($request)
+    {
+        return new UserResource($request->user());
+    }
+    
     public function getUser($user)
     {
         $user = User::findOrFail($user);
-        
         return new UserResource($user);
     }
 

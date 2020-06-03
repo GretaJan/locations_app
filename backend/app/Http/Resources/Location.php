@@ -23,7 +23,7 @@ class Location extends JsonResource
             'updated_at' => $this->updated_at->format('Y-m-d H:i'),
             'deleted_at' => $this->deleted_at,
             'ended_at'=> $this->ended_at->format('Y-m-d H:i'),
-            // 'worked_today' => $this->worked_today,
+            'worked_today' => $this->worked_today,
         ];
     }
 }

@@ -19,22 +19,29 @@ class UserController extends Controller
         return $users;
     }
 
-    public function showUser(User $user)
+    public function showUserPersonal(Request $request)
     {
-        $user = $this->user->showUser($user);
+        $user = $this->user->getUserPersonal($request);
         return $user;
     }
+
+    public function showUser($user_id)
+    {
+        $user = $this->user->getUser($user_id);
+        return $user;
+    }
+
 
     public function login(Request $request)
     {
         $login_status = $this->user->login($request);
         return $login_status;
     }
-    public function createUser(Request $request)
-    {
-        $new_user = $this->user->register($request);
-        return $new_user;
-    }
+    // public function createUser(Request $request)
+    // {
+    //     $new_user = $this->user->register($request);
+    //     return $new_user;
+    // }
 
     public function storeWorkedHours(User $user)
     {

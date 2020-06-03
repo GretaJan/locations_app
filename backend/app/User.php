@@ -38,12 +38,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     public function role() {
         return $this->hasOne(Role::class);
     }
+
     public function overviews() {
         return $this->hasMany(Overview::class);
     }
+    
     public function locations() {
         return $this->hasMany(Location::class);
     }

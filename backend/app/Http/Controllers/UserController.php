@@ -37,11 +37,12 @@ class UserController extends Controller
         $login_status = $this->user->login($request);
         return $login_status;
     }
-    // public function createUser(Request $request)
-    // {
-    //     $new_user = $this->user->register($request);
-    //     return $new_user;
-    // }
+    
+    public function createUser(Request $request)
+    {
+        $new_user = $this->user->register($request);
+        return $new_user;
+    }
 
     public function storeWorkedHours(User $user)
     {

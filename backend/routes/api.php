@@ -45,4 +45,3 @@ Route::get('/daily_overview/{user_id}/{overview_id}', 'LocationController@getDai
 Route::get('/location/{user_id}/{location_id}', 'LocationController@showLocation');
 Route::post('/new_location/{user_id}', 'LocationController@createLocation');
 
-Route::get('/workers/profile/{user}', 'ProfileController@getProfile');

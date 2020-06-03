@@ -1,6 +1,6 @@
 import { FETCH_ALL_WORKERS, FETCH_WORKER } from '../actions/types';
 
-const initialState = {
+initialState = {
     workers: [],
     worker: {},
 }

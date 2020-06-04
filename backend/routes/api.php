@@ -21,15 +21,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@createUser');
 Route::get('/logout', 'UserController@logout');
-// Route::group([
-//     'middleware' => 'auth:api'
-// ], function() {
-//     Route::get('/users', 'UserController@showUsers');
-// });
+Route::group([
+    'middleware' => 'auth:api'
+], function() {
+    Route::get('/users', 'UserController@showUsers');
+    Route::get('user/{user_id}', 'UserController@showUser');
+    Route::get('/user', 'UserController@showUserPersonal');
+});
 
 Route::get('/users', 'UserController@showUsers');
-Route::get('user/{user_id}', 'UserController@showUser');
-Route::get('/user', 'UserController@showUserPersonal');
 
 Route::put('/workedHours/user/{user}', 'UserController@storeWorkedHours');
 Route::put('/edit_user_private/{user}', 'UserController@editPrivate');

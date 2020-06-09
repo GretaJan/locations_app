@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Overview;
 use App\Http\Resources\User as UserResource;

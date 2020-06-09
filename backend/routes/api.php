@@ -20,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@createUser');
-Route::get('/logout', 'UserController@logout');
+
 Route::group([
     'middleware' => 'auth:api'
 ], function() {
     Route::get('/users', 'UserController@showUsers');
     Route::get('user/{user_id}', 'UserController@showUser');
     Route::get('/user', 'UserController@showUserPersonal');
+    Route::get('/logout', 'UserController@logout');
 });
 
 Route::get('/users', 'UserController@showUsers');

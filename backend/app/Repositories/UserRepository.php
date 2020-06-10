@@ -51,7 +51,6 @@ class UserRepository
         }
 
         $user = $request->user();
-
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
 
@@ -69,6 +68,7 @@ class UserRepository
         // ]);
 
         $user = new User();
+        $user->role = 'worker';
         $user->username = $request->username;
         $user->name = $request->name;
         $user->surname = $request->surname;

@@ -18,10 +18,12 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $role = ['admin', 'worker'];
+
     return [
         'id' => $faker->unique()->numberBetween($min = 1, $max = 30),
         // 'profile_id' => $faker->unique()->numberBetween($min = 1, $max = 30),
-        'username' => $faker->text(10),
+        'role' => $faker->randomElement($role),
         'username' => $faker->text(10),
         'name' => $faker->text(10),
         'surname' => $faker->text(10),

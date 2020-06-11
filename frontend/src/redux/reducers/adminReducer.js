@@ -1,7 +1,7 @@
 import { FETCH_ALL_WORKERS, FETCH_WORKER, REGISTER_WORKER } from '../actions/types';
 
 initialState = {
-    workers: [],
+    workersProfile: [],
     worker: {},
     logout_error: ''
 }
@@ -11,17 +11,17 @@ export default function(state = initialState, action) {
         case FETCH_ALL_WORKERS:
             return {
                 ...state,
-                workers: action.workers
+                workersProfile: action.workers
             } 
         case FETCH_WORKER:
             return {
                 ...state,
-                worker: action.worker
+                workersProfile: action.worker
             }
         case REGISTER_WORKER:
         return {
             ...state,
-            workers: this.workers.concat(action.worker)
+            workersProfile: this.workers.concat(action.worker)
         }
         default:
             return state

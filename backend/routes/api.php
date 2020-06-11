@@ -42,6 +42,8 @@ Route::get('/overview/{user_id}/{overview}', 'OverviewController@showOverview');
 Route::post('/overview/{user_id}', 'OverviewController@createOverview');
 
 Route::get('/locations/{user_id}', 'LocationController@showLocations');
+Route::get('/last_locations', 'LocationController@getLastLocations');
+Route::get('/last_location/{user_id}', 'LocationController@getLastLocation');
 Route::get('/daily_overview/{user_id}/{overview_id}', 'LocationController@getDailyLocations');
 Route::get('/location/{user_id}/{location_id}', 'LocationController@showLocation');
 Route::post('/new_location/{user_id}', 'LocationController@createLocation');

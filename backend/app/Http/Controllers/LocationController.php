@@ -21,6 +21,18 @@ class LocationController extends Controller
         return $locations;
     }
 
+    public function getLastLocations()
+    {
+        $last_locations = $this->location->getLastLocations();
+        return $last_locations;
+    }
+
+    public function getLastLocation($user_id)
+    {
+        $last_location = $this->location->getLastLocation($user_id);
+        return $last_location;
+    }
+
     public function showLocation($user_id, $location_id)
     {
         $location = $this->location->getLocation($user_id, $location_id);

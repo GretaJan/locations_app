@@ -47,4 +47,4 @@ Route::get('/last_location/{user_id}', 'LocationController@getLastLocation');
 Route::get('/daily_overview/{user_id}/{overview_id}', 'LocationController@getDailyLocations');
 Route::get('/location/{user_id}/{location_id}', 'LocationController@showLocation');
 Route::post('/new_location/{user_id}', 'LocationController@createLocation');
-
+Route::put('/update_location/{user_id}/{location_id}', 'LocationController@updateLocation');

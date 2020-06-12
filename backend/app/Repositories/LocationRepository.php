@@ -25,46 +25,14 @@ class LocationRepository
 
     public function getLastLocations() 
     {
-        // $locations = Location::get();
-        // $users = User::get();
-        
-        // foreach($locations as $location)
-        // {
-        //     foreach($users as $user)
-        //     {
-
-        //     }
-        // }
-        // $locations->each(function ($collection, $alphabet){
-        //     var_dump($alphabet, $collection);
-        // });
-        // $last_locations = Location::whereRaw('id, user_id IN (select MAX(id) FROM locations GROUP BY user_id')->get();
-        // $last_locations = Location::select(DB::raw('locations'))->from(DB::raw('(SELECT * FROM locations ORDER BY id DESC) '))
-        // $last_locations = Location::select('*', DB::raw('MAX(id) AS max_id'))->groupBy('user_id')->get();
-
-
-            // $locations = DB::table('users')
-            // ->join('locations', 'users.id', '=', 'locations.user_id')
-            // ->select('users.id', 'users.name', 'users.surname', 'users.image', 'locations.*')
-            // ->groupBy('locations.user_id')
-            // ->get();
-            $locations = DB::table('users')
-            ->join('locations', 'users.id', '=', 'locations.user_id')
-            ->select('users.id', 'users.name', 'users.surname', 'users.image', 'locations.*')
-            // ->groupBy('locations.user_id')
-            ->get();
-            // $locations = DB::table('users')
-            // ->join('locations', 'users.id', '=', 'locations.id')
-            // ->select('users.id', 'users.name', 'users.surname', 'users.image', 'locations.*')
-            // ->groupBy('locations.user_id')
-            // ->get();
-            
-            // ->select('users.id', 'users.name', 'users.surname', 'users.image', 'locations.*')
-            // ->groupBy('locations.user_id', 'desc')
-            // ->get();
+        $locations = DB::table('users')
+        ->join('locations', 'users.id', '=', 'locations.user_id')
+        ->select('users.id', 'users.name', 'users.surname', 'users.image', 'locations.*')
+        // ->where('locations.ended_at', '!=', 'NULL')
+        ->where('locations.current', '=', '1')
+        ->get();
 
         return UserLocationResource::collection($locations);
-        // return response()->json(['locations'=>$locations], 200);
     }
 
     public function getLastLocation($user)
@@ -105,10 +73,21 @@ class LocationRepository
         $location->longitude = $request->longitude;
         $location->latitude = $request->latitude;
         // $location->started_at = $request->started_at;
-        $location->ended_at = $request->ended_at;
+        // $location->ended_at = $request->ended_at;
         $location->worked_today = $request->worked_today;
         $location->save();
 
+        return new LocationResource($location);
+    }
+
+    public function updateLocation($request, $user, $location)
+    {
+        $location = Location::where('user_id', $user)->findOrFail($location);
+        $location->longitude = $request->longitude;
+        $location->latitude = $request->latitude;
+        $location->current = $request->current;
+        $location->save();
+  
         return new LocationResource($location);
     }
 }

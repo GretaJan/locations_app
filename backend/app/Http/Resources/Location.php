@@ -21,7 +21,8 @@ class Location extends JsonResource
             'latitude' => $this->latitude,
             'created_at' => $this->created_at->format('Y-m-d H:i'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i'),
-            'ended_at'=> $this->ended_at->format('Y-m-d H:i'),
+            // 'ended_at'=> $this->ended_at->format('Y-m-d H:i'),
+            'current' => $this->current,
             'worked_today' => $this->worked_today,
         ];
     }

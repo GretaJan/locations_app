@@ -51,4 +51,10 @@ class LocationController extends Controller
         return $new_location;
     }
 
+    public function updateLocation(Request $request, $user_id, $location_id)
+    {
+        $updated_location = $this->location->updateLocation($request, $user_id, $location_id);
+        return $updated_location;
+    }
+
 }

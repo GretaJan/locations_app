@@ -1,4 +1,8 @@
-import { FETCH_ALL_WORKERS, FETCH_WORKER, REGISTER_WORKER } from '../actions/types';
+import { 
+    FETCH_ALL_WORKERS, 
+    FETCH_WORKER, 
+    REGISTER_WORKER 
+} from '../actions/types';
 
 initialState = {
     workersProfile: [],
@@ -16,7 +20,7 @@ export default function(state = initialState, action) {
         case FETCH_WORKER:
             return {
                 ...state,
-                workersProfile: action.worker
+                worker: action.worker
             }
         case REGISTER_WORKER:
         return {

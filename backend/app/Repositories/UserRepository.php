@@ -41,6 +41,7 @@ class UserRepository
         $request->validate([
             "username" => "required|min:3|max:100",
         ]);
+
         $userCredentials = request(["username", "password"]);
 
         if(!Auth::attempt($userCredentials)) 

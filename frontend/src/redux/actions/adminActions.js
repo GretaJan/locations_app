@@ -1,4 +1,9 @@
-import {  URL, FETCH_ALL_WORKERS, FETCH_WORKER, REGISTER_WORKER } from './types';
+import {  
+    URL, 
+    FETCH_ALL_WORKERS, 
+    FETCH_WORKER, 
+    REGISTER_WORKER 
+} from './types';
 import axios from 'axios';
 
 export const fetchWorkers = () => dispatch => {
@@ -8,7 +13,9 @@ export const fetchWorkers = () => dispatch => {
                 type: FETCH_ALL_WORKERS,
                 workers: response.data.data
             })
-        }).catch(err => console.log("err", err.response));
+        }).catch(err => {
+            console.log("Error", err.response)
+        });
 }
 
 export const fetchWorker = (id) => dispatch => {
@@ -18,7 +25,9 @@ export const fetchWorker = (id) => dispatch => {
                 type: FETCH_WORKER,
                 worker: response.data.data
             })
-        }).catch(err => console.log("err", err.response));
+        }).catch(err => {
+            console.log("err", err.response)
+        });
 }
 
 export const registerWorker = (data) => disptach => {
@@ -29,5 +38,7 @@ export const registerWorker = (data) => disptach => {
                 type: REGISTER_WORKER,
                 // user: res
             })
-        }).catch(err => console.log(err.response))
+        }).catch(err => {
+            console.log(err.response)
+        })
 }

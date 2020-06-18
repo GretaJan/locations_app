@@ -99,7 +99,7 @@ class UserRepository
             $user->worked_hours = $user->worked_hours;
         }
       
-        return UserResource($user);
+        return new UserResource($user);
     }
 
     public function editPrivate($request, $user)

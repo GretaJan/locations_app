@@ -10,7 +10,7 @@ import axios from 'axios';
 
 export const login = (data) => dispatch => {
 
-    axios.post(`${URL}/login`, data, {withCredentials: true})
+    axios.post(`${URL}/login`, data, { withCredentials: true })
         .then(data => {
             axios.get(`${URL}/user`, {headers: {'Authorization' : data.data.token_type + ' ' + data.data.access_token}}, {withCredentials: true})
             .then(user => {

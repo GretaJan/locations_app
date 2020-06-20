@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::post('/login', 'UserController@login');
 Route::get('/users', 'UserController@showUsers');
 Route::get('user/{user_id}', 'UserController@showUser');
+Route::post('/register', 'UserController@createUser');
 
 Route::group([
     'middleware' => 'auth:api',
@@ -47,11 +44,7 @@ Route::group([
      Route::get('/location/{user_id}/{location_id}', 'LocationController@showLocation');
      Route::post('/new_location/{user_id}', 'LocationController@createLocation');
      Route::put('/update_location/{user_id}/{location_id}', 'LocationController@updateLocation');
-  
-
-   
 });
-
 // Route::get('/users', 'UserController@showUsers');
 
 Route::put('/workedHours/user/{user}', 'UserController@storeWorkedHours');

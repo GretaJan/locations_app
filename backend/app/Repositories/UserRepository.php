@@ -69,7 +69,7 @@ class UserRepository
         // ]);
 
         $user = new User();
-        $user->role = 'worker';
+        $user->role = 'admin';
         $user->username = $request->username;
         $user->name = $request->name;
         $user->surname = $request->surname;

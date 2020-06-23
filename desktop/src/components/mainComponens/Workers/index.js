@@ -14,7 +14,7 @@ const Index = ({ workers, emptyArray, fetchWorkers }) => {
     }, [workers])
 
     return (
-        <div>
+        <div class="flex-right">
             <h1>Users2</h1>
             { emptyArray !== '' ? (
                 <div>
@@ -23,7 +23,6 @@ const Index = ({ workers, emptyArray, fetchWorkers }) => {
                 </div>
             ) : (
                 <div>
-                <div >Empty</div>
                 <Workers workers={ workers } />
                 </div>
             )} 

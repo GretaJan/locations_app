@@ -22,18 +22,20 @@ function App({ token, getToken }) {
   }, [token])
 
   return (
-    token === '' ? (
-      <Login />
-    ) : (
-      <Router>
-        <SideMenu />
-        <Switch>
-          <Route path="/" exact component={ Homepage } />
-          <Route path="/workers" component={ Workers } />
-          <Redirect to="/" />
-        </Switch>
-      </Router>
-    )
+      token === '' ? (
+        <Login />
+        ) : (
+        <div class="flex-wrap" >   
+          <Router>
+            <SideMenu />
+            <Switch>
+              <Route path="/" exact component={ Homepage } />
+              <Route path="/workers" component={ Workers } />
+              <Redirect to="/" />
+            </Switch>
+          </Router>
+        </div>
+      )
   )
 }
 const mapStateToProps = (state) => ({

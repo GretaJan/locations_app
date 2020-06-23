@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Menu() {
 
   return (
-    <div> 
+    <div class="flex-left"> 
         <ul>
             <Link to="/"><li>Map</li></Link>
             <Link to="/workers"><li>Users</li></Link>

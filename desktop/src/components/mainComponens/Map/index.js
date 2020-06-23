@@ -11,7 +11,7 @@ const Homepage = ({ workers, token, emptyArray, fetchWorkers, logout }) => {
 
     useEffect(() => {
         fetchWorkers();
-        
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -21,7 +21,7 @@ const Homepage = ({ workers, token, emptyArray, fetchWorkers, logout }) => {
     }
 
     return (
-        <div>
+        <div class="flex-right">
             <h1>Users Main</h1>
             { emptyArray !== '' ? (
                 <Empty text={ emptyArray } />

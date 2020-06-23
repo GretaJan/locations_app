@@ -34,7 +34,7 @@ const logoutFunc = (e) => {
 }
 
     return (
-        <div>
+        <div class="flex-right" > 
             <p>Login</p>
             <form>
                 <input onChange={onChangeName} value={name} />

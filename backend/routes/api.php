@@ -23,7 +23,7 @@ Route::group([
     'middleware' => 'auth:api',
 ], function() {
     // Users
-    Route::post('/register', 'UserController@createUser');
+    // Route::post('/register', 'UserController@createUser');
     Route::get('/user', 'UserController@showUserPersonal');
     Route::get('/logout', 'UserController@logout');
     

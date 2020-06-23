@@ -1,25 +1,34 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkers } from '../../../redux/actions/workerActions';
+import { logout } from '../../../redux/actions/authActions';
 
 //components
 import Workers from './Workers';
 import Empty from '../../modals/texts/EmptyArray';
 
-const Homepage = ({ workers, emptyArray, fetchWorkers }) => {
+const Homepage = ({ workers, token, emptyArray, fetchWorkers, logout }) => {
 
     useEffect(() => {
         fetchWorkers();
         console.log("workers", workers)
     }, [])
 
+    const logoutFunc = () => {
+        console.log("hey", token)
+        logout(token);
+    }
+
     return (
         <div>
-            <h1>Users</h1>
+            <h1>Users Main</h1>
             { emptyArray !== '' ? (
                 <Empty text={ emptyArray } />
             ) : (
-                <Workers workers={ workers } />
+                <div>
+                    <Workers workers={ workers } />
+                    <button onClick={ logoutFunc }>Logout</button>
+                </div>
             )}
         </div>
     )
@@ -28,6 +37,7 @@ const Homepage = ({ workers, emptyArray, fetchWorkers }) => {
 const mapStateToProps = (state) => ({
     workers: state.workers.workers,
     emptyArray: state.workers.emptyArray,
+    token: state.authorization.token,
 })
 
-export default connect(mapStateToProps, { fetchWorkers })(Homepage)
+export default connect(mapStateToProps, { fetchWorkers, logout })(Homepage)

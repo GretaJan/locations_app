@@ -1,10 +1,9 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, LOGOUT_FAIL } from '../actions/types';
-const db = require('../../database/db');
+const db = window.require('electron').remote.getGlobal('database');
 
 const initialState = {
     admin: {},
-    token: null,
-    authorized: false,
+    token: '',
     login_error: '',
 }
 
@@ -13,25 +12,25 @@ export default function(state = initialState, action) {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                admin: action.payload,
+                admin: action.adminProfile,
                 token: action.token,
-                authorized: action.authorized
             }
         case LOGIN_FAIL:
             return {
                 ...state,
-                error: action.payload
+                token: action.token,
+                error: action.error
             }
         case LOGOUT_SUCCESS:
             return {
                 ...state,
-                token: action.token,
-                admin: action.payload
+                token: action.adminToken,
+                admin: action.error
             }
         case LOGOUT_FAIL:
             return {
                 ...state,
-                error: action.payload
+                error: action.error
             }
         default:
             return state

@@ -11,7 +11,8 @@ const Homepage = ({ workers, token, emptyArray, fetchWorkers, logout }) => {
 
     useEffect(() => {
         fetchWorkers();
-        console.log("workers", workers)
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const logoutFunc = () => {

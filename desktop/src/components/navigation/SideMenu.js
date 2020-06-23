@@ -9,8 +9,8 @@ function Menu() {
   return (
     <div> 
         <ul>
-            <Link to={"/"}><li>Map</li></Link>
-            <Link to={"/worker"}><li>Users</li></Link>
+            <Link to="/"><li>Map</li></Link>
+            <Link to="/workers"><li>Users</li></Link>
         </ul>
     </div>
   )

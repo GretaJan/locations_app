@@ -10,14 +10,15 @@ const Index = ({ workers, emptyArray, fetchWorkers }) => {
 
     useEffect(() => {
         fetchWorkers();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [workers])
 
     return (
         <div>
             <h1>Users2</h1>
-            {/* { emptyArray !== '' ? (
+            { emptyArray !== '' ? (
                 <div>
-                    <div >Empty</div>
+                    <div>Empty</div>
                     <Empty text={ emptyArray } />
                 </div>
             ) : (
@@ -25,7 +26,7 @@ const Index = ({ workers, emptyArray, fetchWorkers }) => {
                 <div >Empty</div>
                 <Workers workers={ workers } />
                 </div>
-            )} */}
+            )} 
         </div>
     )
 }

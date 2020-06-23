@@ -9,7 +9,6 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
 // Components
 import SideMenu from './SideMenu';
 import Login from '../auth/login';
@@ -26,12 +25,12 @@ function App({ token, getToken }) {
     token === '' ? (
       <Login />
     ) : (
-      // <Login />
       <Router>
         <SideMenu />
         <Switch>
-          <Route exact path="/" component={ Homepage } />
+          <Route path="/" exact component={ Homepage } />
           <Route path="/workers" component={ Workers } />
+          <Redirect to="/" />
         </Switch>
       </Router>
     )

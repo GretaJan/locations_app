@@ -1,5 +1,4 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, LOGOUT_FAIL } from '../actions/types';
-const db = window.require('electron').remote.getGlobal('database');
 
 const initialState = {
     admin: {},

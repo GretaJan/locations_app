@@ -27,7 +27,8 @@ function createWindow () {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-    }
+      enableRemoteModule: true
+    },
   })
   // const workersWindow = new BrowserWindow({
   //   width: 800,
@@ -47,7 +48,7 @@ function createWindow () {
   //   isDev ? 'http://localhost:3000/workers' : `file://${path.join(__dirname, "../build/index.html")}`
   // )
 
-  // win.on('closed', () => mainWindow = null)
+  win.on('closed', () => mainWindow = null)
   // Open the DevTools.
   win.webContents.openDevTools()
 }
